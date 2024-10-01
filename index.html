@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional PDF Viewer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 300;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .pdf-button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .pdf-button:hover {
+            background-color: #2980b9;
+        }
+        .pdf-container {
+            flex-grow: 1;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .pdf-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1></h1>
+        </header>
+        <div class="button-container">
+            <button class="pdf-button" onclick="loadPDF('Hande_Kurtlar_Portfolio.pdf')">Portfolio</button>
+            <button class="pdf-button" onclick="loadPDF('Hande_Kurtlar_Portfolio_Mario.pdf')">Mario</button>
+        </div>
+        <div class="pdf-container">
+            <embed id="pdf-viewer" class="pdf-content" type="application/pdf">
+        </div>
+    </div>
+
+    <script>
+        function loadPDF(pdfUrl) {
+            document.getElementById('pdf-viewer').src = pdfUrl;
+        }
+
+        // Load the first PDF by default
+        loadPDF('Hande_Kurtlar_Portfolio.pdf');
+    </script>
+</body>
+</html>
